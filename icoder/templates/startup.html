@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block title %}Students
+{% endblock title %}
+{% block css %}
+{% endblock css %}
+{% block body %}
+
+{% if user.is_authenticated %}
+<div class="container">
+{% load static  %}
+<h3>Applied Candidates</h3>
+
+{% for i in contact|slice:"0:" %}
+{% if i.startup == request.user.username %}
+<div class="container" style="border-color: blue">
+<ul>
+    <li>Username is: {{i.username}}</li>
+    <li>First Name is: {{i.fname}}</li>
+    <li>Last name is: {{i.lname}}</li>
+    <li>Email is: {{i.email}}</li>
+    <li>College is: {{i.college}}</li>
+    <li>Cgpa is: {{i.cgpa}}</li>   
+    <li>Startup applied is: {{i.startup}}</li> 
+</ul>
+</div>
+{% endif %}
+{% endfor %}
+</div>
+{% endif %}
+{% endblock body %}

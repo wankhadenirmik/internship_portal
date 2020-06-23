@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block title %}Startups
+{% endblock title %}
+{% block css %}
+{% endblock css %}
+{% block body %}
+<div class="card-group">
+{% load static  %}
+{% for i in product|slice:"0:" %}
+<div class="card" style="width: 18rem; margin: 10px">
+  <div class="card-body">
+    <h5 class="card-title">{{i.product_name}}</h5>
+    <p class="card-text">{{i.product_dec}}</p>
+    <a href="/contact" class="btn btn-primary">Apply</a>
+  </div>
+</div>
+{% if forloop.counter|divisibleby:4 and forloop.counter > 0 and not forloop.last%}
+</div> <div class="card-group">
+{% endif %}
+{% endfor %}
+
+</div>
+{% endblock body %}
