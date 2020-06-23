@@ -23,9 +23,7 @@ python manage.py makemigrations
 python manage.py runserver
 did it on (python 3.6 django 3.0)
 
-
 see for csrf token installation
-
 
 admin:
 the username is nirmik
